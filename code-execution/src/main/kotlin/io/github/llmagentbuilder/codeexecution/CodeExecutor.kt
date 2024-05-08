@@ -3,6 +3,9 @@ package io.github.llmagentbuilder.codeexecution
 import java.nio.file.Files
 import kotlin.io.path.writeText
 
+/**
+ * Code executor
+ */
 interface CodeExecutor {
     fun execute(input: String): String
 }

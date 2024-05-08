@@ -22,7 +22,9 @@ object JavaCodeExecutor : NonSandboxedCodeExecutor() {
     }
 }
 
-
+/**
+ * Tool to execute Java code
+ */
 class JavaCodeExecutionTool(private val config: JavaCodeExecutionConfig) :
     ConfigurableAgentTool<JavaCodeExecutionRequest, JavaCodeExecutionResponse, JavaCodeExecutionConfig> {
 

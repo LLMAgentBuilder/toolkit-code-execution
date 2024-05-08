@@ -175,6 +175,13 @@
         <groupId>org.jetbrains.dokka</groupId>
         <artifactId>dokka-maven-plugin</artifactId>
         <version>1.9.20</version>
+        <configuration>
+          <sourceDirectories>
+            <sourceDirectory>${project.basedir}/src/main/kotlin
+            </sourceDirectory>
+            <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+          </sourceDirectories>
+        </configuration>
         <executions>
           <execution>
             <phase>package</phase>
