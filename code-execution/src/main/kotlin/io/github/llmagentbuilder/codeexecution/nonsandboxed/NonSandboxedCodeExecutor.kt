@@ -10,7 +10,7 @@ abstract class NonSandboxedCodeExecutor : CodeExecutor {
             .withArgs(*args(input).toTypedArray())
             .withWorkingDirectory(
                 (workingDirectory() ?: ".")
-                    .run { Paths.get(this).toAbsolutePath() }
+                    .run { Paths.get(this).toAbsolutePath().normalize() }
                     .toFile())
             .ignoreExitStatus()
             .run()
