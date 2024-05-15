@@ -7,13 +7,14 @@ import org.slf4j.LoggerFactory
 
 const val toolName = "executeJavaCode"
 
-object JavaCodeExecutor : NonSandboxedCodeExecutor() {
+class JavaCodeExecutor(private val config: JavaCodeExecutionConfig) :
+    NonSandboxedCodeExecutor() {
     override fun executable(): String {
-        return "java"
+        return config.executable
     }
 
     override fun workingDirectory(): String? {
-        return null
+        return config.workingDirectory
     }
 
     override fun args(input: String): List<String> {
@@ -25,10 +26,11 @@ object JavaCodeExecutor : NonSandboxedCodeExecutor() {
 /**
  * Tool to execute Java code
  */
-class JavaCodeExecutionTool(private val config: JavaCodeExecutionConfig) :
+class JavaCodeExecutionTool(config: JavaCodeExecutionConfig) :
     ConfigurableAgentTool<JavaCodeExecutionRequest, JavaCodeExecutionResponse, JavaCodeExecutionConfig> {
 
     private val logger = LoggerFactory.getLogger(javaClass)
+    private val codeExecutor = JavaCodeExecutor(config)
 
     init {
         logger.info("Created with config: $config")
@@ -36,7 +38,7 @@ class JavaCodeExecutionTool(private val config: JavaCodeExecutionConfig) :
 
     override fun apply(request: JavaCodeExecutionRequest): JavaCodeExecutionResponse {
         return JavaCodeExecutionResponse(
-            JavaCodeExecutor.execute(request.code)
+            codeExecutor.execute(request.code)
         )
     }
 
