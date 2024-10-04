@@ -5,7 +5,7 @@ import io.github.llmagentbuilder.codeexecution.nonsandboxed.NonSandboxedCodeExec
 import io.github.llmagentbuilder.core.tool.ConfigurableAgentTool
 import org.slf4j.LoggerFactory
 
-const val toolName = "executePythonCode"
+const val toolId = "executePythonCode"
 
 class PythonCodeExecutor(private val config: PythonCodeExecutionConfig) :
     NonSandboxedCodeExecutor() {
@@ -47,6 +47,10 @@ class PythonCodeExecutionTool(config: PythonCodeExecutionConfig) :
     }
 
     override fun name(): String {
-        return toolName
+        return toolId
+    }
+
+    override fun id(): String {
+        return toolId
     }
 }

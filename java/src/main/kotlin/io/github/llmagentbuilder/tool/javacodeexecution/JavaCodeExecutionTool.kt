@@ -5,7 +5,7 @@ import io.github.llmagentbuilder.codeexecution.nonsandboxed.NonSandboxedCodeExec
 import io.github.llmagentbuilder.core.tool.ConfigurableAgentTool
 import org.slf4j.LoggerFactory
 
-const val toolName = "executeJavaCode"
+const val toolId = "executeJavaCode"
 
 class JavaCodeExecutor(private val config: JavaCodeExecutionConfig) :
     NonSandboxedCodeExecutor() {
@@ -47,6 +47,10 @@ class JavaCodeExecutionTool(config: JavaCodeExecutionConfig) :
     }
 
     override fun name(): String {
-        return toolName
+        return toolId
+    }
+
+    override fun id(): String {
+        return toolId
     }
 }
