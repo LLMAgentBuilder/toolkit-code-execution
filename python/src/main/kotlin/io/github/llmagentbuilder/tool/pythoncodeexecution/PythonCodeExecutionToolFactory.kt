@@ -1,16 +1,14 @@
 package io.github.llmagentbuilder.tool.pythoncodeexecution
 
-import io.github.llmagentbuilder.core.tool.EnvironmentVariableConfigurableAgentToolFactory
+import io.github.llmagentbuilder.core.tool.ConfigurableAgentToolFactory
 
 class PythonCodeExecutionToolFactory :
-    EnvironmentVariableConfigurableAgentToolFactory<PythonCodeExecutionTool, PythonCodeExecutionConfig>(
-        PythonCodeExecutionConfig::class.java, "${toolId}_"
-    ) {
-    override fun create(config: PythonCodeExecutionConfig): PythonCodeExecutionTool {
+    ConfigurableAgentToolFactory<PythonCodeExecutionConfig, PythonCodeExecutionTool> {
+    override fun create(config: PythonCodeExecutionConfig?): PythonCodeExecutionTool {
         return PythonCodeExecutionTool(config)
     }
 
-    override fun configName(): String {
+    override fun toolId(): String {
         return toolId
     }
 }

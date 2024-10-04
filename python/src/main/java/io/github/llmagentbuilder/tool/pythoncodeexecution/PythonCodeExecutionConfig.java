@@ -2,7 +2,7 @@ package io.github.llmagentbuilder.tool.pythoncodeexecution;
 
 public class PythonCodeExecutionConfig {
 
-  private String executable = "python";
+  private String executable;
 
   private String workingDirectory;
 

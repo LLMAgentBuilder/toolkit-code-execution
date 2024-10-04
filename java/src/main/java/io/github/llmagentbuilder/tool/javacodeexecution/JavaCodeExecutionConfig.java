@@ -2,7 +2,7 @@ package io.github.llmagentbuilder.tool.javacodeexecution;
 
 public class JavaCodeExecutionConfig {
 
-  private String executable = "java";
+  private String executable;
 
   private String workingDirectory;
 

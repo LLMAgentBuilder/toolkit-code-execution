@@ -7,14 +7,14 @@ import org.slf4j.LoggerFactory
 
 const val toolId = "executePythonCode"
 
-class PythonCodeExecutor(private val config: PythonCodeExecutionConfig) :
+class PythonCodeExecutor(private val config: PythonCodeExecutionConfig?) :
     NonSandboxedCodeExecutor() {
     override fun executable(): String {
-        return config.executable
+        return config?.executable ?: "python"
     }
 
     override fun workingDirectory(): String? {
-        return config.workingDirectory
+        return config?.workingDirectory
     }
 
     override fun args(input: String): List<String> {
@@ -26,7 +26,7 @@ class PythonCodeExecutor(private val config: PythonCodeExecutionConfig) :
 /**
  * Tool to execute Python code
  */
-class PythonCodeExecutionTool(config: PythonCodeExecutionConfig) :
+class PythonCodeExecutionTool(config: PythonCodeExecutionConfig?) :
     ConfigurableAgentTool<PythonCodeExecutionRequest, PythonCodeExecutionResponse, PythonCodeExecutionConfig> {
 
     private val logger = LoggerFactory.getLogger(javaClass)

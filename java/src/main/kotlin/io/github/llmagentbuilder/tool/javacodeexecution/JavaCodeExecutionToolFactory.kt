@@ -1,16 +1,14 @@
 package io.github.llmagentbuilder.tool.javacodeexecution
 
-import io.github.llmagentbuilder.core.tool.EnvironmentVariableConfigurableAgentToolFactory
+import io.github.llmagentbuilder.core.tool.ConfigurableAgentToolFactory
 
 class JavaCodeExecutionToolFactory :
-    EnvironmentVariableConfigurableAgentToolFactory<JavaCodeExecutionTool, JavaCodeExecutionConfig>(
-        JavaCodeExecutionConfig::class.java, "${toolId}_"
-    ) {
-    override fun create(config: JavaCodeExecutionConfig): JavaCodeExecutionTool {
+    ConfigurableAgentToolFactory<JavaCodeExecutionConfig, JavaCodeExecutionTool> {
+    override fun create(config: JavaCodeExecutionConfig?): JavaCodeExecutionTool {
         return JavaCodeExecutionTool(config)
     }
 
-    override fun configName(): String {
+    override fun toolId(): String {
         return toolId
     }
 }
