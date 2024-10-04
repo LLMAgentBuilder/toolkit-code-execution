@@ -6,7 +6,7 @@
 
   <groupId>io.github.llmagentbuilder</groupId>
   <artifactId>toolkit-code-execution</artifactId>
-  <version>0.1.2</version>
+  <version>0.2.0</version>
   <packaging>pom</packaging>
   <name>LLM Agent Builder :: Toolkit :: Code Execution</name>
   <description>LLM Agent Builder :: Toolkit :: Code Execution</description>
